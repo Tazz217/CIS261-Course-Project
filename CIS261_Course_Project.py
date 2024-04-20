@@ -2,10 +2,6 @@
 #CIS261
 #Course Project
 
-
-#add (1% = .01 in print)
-
-
 def employee_name():
     return input("Enter the Employee's Name: ")
 
@@ -51,13 +47,13 @@ def main():
 
     while True:
         emp = employee_name()
-        if employee_name == "end":
+        if emp.lower() == "end":
             break
-        
+    
         hours = hour_amt()
         hrate = hourly_rate()
         trate = income_tax_rate()
-        
+       
         gross_pay, income_tax, net_pay = payroll(hours, hrate, trate)
         
         employees.append((emp, hours, hrate, gross_pay, trate, income_tax, net_pay))
@@ -67,11 +63,11 @@ def main():
         gross_pay += gross_pay
         total_tax += income_tax
         net_pay += net_pay
-
-    for employee in employees:
-        individual_payroll(*employee)
-
-    total_payroll(employees, total_hours, gross_pay, total_tax, net_pay)
+        
+    for emp, hours, hrate, gross_pay, trate, income_tax, net_pay in employees:
+        individual_payroll(emp, hours, hrate, trate, gross_pay, income_tax, net_pay)
+        
+    total_payroll(total_emp, total_hours, total_gp, total_tax, total_np)
 
 if __name__ == "__main__":
     main()
