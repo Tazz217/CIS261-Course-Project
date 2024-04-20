@@ -50,7 +50,7 @@ def main():
     total_np = 0
 
     while True:
-        employee = employee_name()
+        emp = employee_name()
         if employee_name == "end":
             break
         
@@ -60,9 +60,9 @@ def main():
         
         gross_pay, income_tax, net_pay = payroll(hours, hrate, trate)
         
-        employees.append((employee, hours, hrate, gross_pay, trate, income_tax, net_pay))
+        employees.append((emp, hours, hrate, gross_pay, trate, income_tax, net_pay))
         
-        employees += 1
+        total_emp += 1
         total_hours += total_hours
         gross_pay += gross_pay
         total_tax += income_tax
