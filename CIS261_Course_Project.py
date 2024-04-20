@@ -6,13 +6,13 @@ def employee_name():
     return input("Enter the Employee's Name: ")
 
 def hour_amt():
-    return float(input("Enter the amount of Hours worked: "))
+    return float(input("Enter the Amount of Hours Worked: "))
 
 def hourly_rate():
-    return float(input("Enter the Empoloyee's Hourly Rate: "))
+    return float(input("Enter the Employee's Hourly Rate: "))
 
 def income_tax_rate():
-    return float(input("Enter the Income Tax Rate of the Employee (8% = 8): "))
+    return float(input("Enter the Income Tax Rate of the Employee (x% = x): "))
 
 def payroll(hours, hrate, trate):
     gross_pay = hours * hrate
@@ -59,10 +59,10 @@ def main():
         employees.append((emp, hours, hrate, gross_pay, trate, income_tax, net_pay))
         
         total_emp += 1
-        total_hours += total_hours
-        gross_pay += gross_pay
+        total_hours += hours
+        total_gp += gross_pay
         total_tax += income_tax
-        net_pay += net_pay
+        total_np += net_pay
         
     for emp, hours, hrate, gross_pay, trate, income_tax, net_pay in employees:
         individual_payroll(emp, hours, hrate, trate, gross_pay, income_tax, net_pay)
