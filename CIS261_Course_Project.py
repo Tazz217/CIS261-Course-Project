@@ -6,17 +6,72 @@
 #add (1% = .01 in print)
 
 
-def payroll(emp, hour,hrate,trate):
-    gross_pay = hour * hrate
-    income_tax = trate * gross_pay
+def employee_name():
+    return input("Enter the Employee's Name: ")
+
+def hour_amt():
+    return float(input("Enter the amount of Hours worked: "))
+
+def hourly_rate():
+    return float(input("Enter the Empoloyee's Hourly Rate: "))
+
+def income_tax_rate():
+    return float(input("Enter the Income Tax Rate of the Employee (8% = 8): "))
+
+def payroll(hours, hrate, trate):
+    gross_pay = hours * hrate
+    income_tax = (trate/100) * gross_pay
     net_pay = gross_pay - income_tax
     return gross_pay, income_tax, net_pay
     
-def main():
-    emp = input("Enter the Employee's Name: ")
-    hour = float(input("Enter the amount of hours the Employee worked: "))
-    hrate = float(input("Enter the Hourly Pay Rate for the Employee: "))
-    trate = float(input("Enter the current Income Tax Rate in decimal form (8% = .08): "))
+def individual_payroll(emp, hours, hrate, trate, gross_pay, income_tax, net_pay):
+    print("\nEmployee Name: ", emp)
+    print("Total Hours Worked: ", hours)
+    print("Hourly Rate: ", hrate)
+    print("Gross Pay: ", gross_pay)
+    print("Income Tax Rate: ", trate, "%")
+    print("Income Tax: ", income_tax)
+    print("Net Pay: ", net_pay)
 
-do: payroll
-    while emp =! "End"
+def total_payroll(total_emp, total_hours, total_gp, total_tax, total_np):
+   print("\nTotal Summary:")
+   print("Total Employees: ", total_emp) 
+   print("Total Hours Worked: ", total_hours)
+   print("Total Gross Pay: ", total_gp)
+   print("Total Tax: ", total_tax)
+   print("Total Net Pay: ", total_np)
+
+def main():
+    employees = []
+    total_emp = 0
+    total_hours = 0
+    total_gp = 0
+    total_tax = 0
+    total_np = 0
+
+    while True:
+        employee = employee_name()
+        if employee_name == "end":
+            break
+        
+        hours = hour_amt()
+        hrate = hourly_rate()
+        trate = income_tax_rate()
+        
+        gross_pay, income_tax, net_pay = payroll(hours, hrate, trate)
+        
+        employees.append((employee, hours, hrate, gross_pay, trate, income_tax, net_pay))
+        
+        employees += 1
+        total_hours += total_hours
+        gross_pay += gross_pay
+        total_tax += income_tax
+        net_pay += net_pay
+
+    for employee in employees:
+        individual_payroll(*employee)
+
+    total_payroll(employees, total_hours, gross_pay, total_tax, net_pay)
+
+if __name__ == "__main__":
+    main()
