@@ -14,13 +14,20 @@ def hourly_rate():
 def income_tax_rate():
     return float(input("Enter the Income Tax Rate of the Employee (x% = x): "))
 
+def dates_worked():
+    print("Enter the Start Date of the Pay Period (mm/dd/yyyy): ")
+    start_date = input()
+    print("Enter the End Date of the Pay Period (mm/dd/yyyy): ")
+    end_date = input()
+    return start_date, end_date 
+
 def payroll(hours, hrate, trate):
     gross_pay = hours * hrate
     income_tax = (trate/100) * gross_pay
     net_pay = gross_pay - income_tax
     return gross_pay, income_tax, net_pay
     
-def individual_payroll(emp, hours, hrate, trate, gross_pay, income_tax, net_pay):
+def individual_payroll(emp, hours, hrate, trate, gross_pay, income_tax, net_pay, start_date, end_date):
     print("\nEmployee Name: ", emp)
     print("Total Hours Worked: ", hours)
     print("Hourly Rate: ", hrate)
@@ -28,6 +35,7 @@ def individual_payroll(emp, hours, hrate, trate, gross_pay, income_tax, net_pay)
     print("Income Tax Rate: ", trate, "%")
     print("Income Tax: ", income_tax)
     print("Net Pay: ", net_pay)
+    print("Pay Period: ", start_date, "to ", end_date)
 
 def total_payroll(total_emp, total_hours, total_gp, total_tax, total_np):
    print("\nTotal Summary:")
@@ -53,6 +61,7 @@ def main():
         hours = hour_amt()
         hrate = hourly_rate()
         trate = income_tax_rate()
+        start_date, end_date = dates_worked()
        
         gross_pay, income_tax, net_pay = payroll(hours, hrate, trate)
         
@@ -65,7 +74,7 @@ def main():
         total_np += net_pay
         
     for emp, hours, hrate, gross_pay, trate, income_tax, net_pay in employees:
-        individual_payroll(emp, hours, hrate, trate, gross_pay, income_tax, net_pay)
+        individual_payroll(emp, hours, hrate, trate, gross_pay, income_tax, net_pay, start_date, end_date)
         
     total_payroll(total_emp, total_hours, total_gp, total_tax, total_np)
 
