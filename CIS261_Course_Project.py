@@ -45,8 +45,7 @@ def printinfo(EmpDetailList):
         taxrate = EmpList[5]
 
         grosspay, incometax, netpay = CalcTaxAndNetPay(hours, hourlyrate, taxrate)
-        print(fromdate, todate, empname, f"{hours:,.2f}", f"{hourlyrate:,.2f}", f"{grosspay:,.2f}", f"{taxrate:,.1%}", 
-              f"{incometax:,.2f}", f"{netpay:,.2f}")
+        print(fromdate, todate, empname, f"{hours:,.2f}", f"{hourlyrate:,.2f}", f"{grosspay:,.2f}", f"{taxrate:,.1%}", f"{incometax:,.2f}", f"{netpay:,.2f}")
 
         TotEmployees += 1
         TotHours += hours
@@ -81,7 +80,7 @@ def GetFromDate():
 
         fromdate = input("Enter From Date (mm/dd/yyyy): ")
         
-        if (len(fromdate.split('/')) != 3 and fromdate.upper() != 'ALL'):
+        if (len(fromdate.split('/')) != 3 and fromdate.upper() !='ALL'):
             print("Invalid Date Format: ")
         else:
             valid = True
@@ -117,7 +116,6 @@ if __name__ == "__main__":
     EmpTotals = {}
 
     while True:
-
         empname = GetEmpName()
         if (empname.upper() == "END"):
             break
@@ -137,6 +135,7 @@ if __name__ == "__main__":
     fromdate = GetFromDate()
     
     EmpDetailList = ReadEmployeeInformation(fromdate)
+    
     print()
     printinfo(EmpDetailList)
     print()
