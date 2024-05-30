@@ -108,7 +108,7 @@ def ReadEmployeeInformation(fromdate):
             if fromdate == employee[0]:
                 EmpDetailList.append( [employee[0], employee[1], employee[2], float(employee[3]), float(employee[4]), float(employee[5])])
     
-        return EmpDetailList
+    return EmpDetailList
 
 if __name__ == "__main__":
 
