@@ -1,6 +1,10 @@
+#Antonio Nace
+#Course Project Phase 3
+#CIS 261
+
 def GetEmpName():
     # Prompt user to enter the employee's name
-    empname = input("Enter employee name: ")
+    empname = input("(To end employee entry, enter END)  Enter Employee Name: ")
     return empname
 
 def GetDatesWorked():
@@ -21,7 +25,7 @@ def GetHourlyRate():
 
 def GetTaxRate():
     # Prompt user to enter the tax rate, convert to float
-    taxrate = float(input("Enter tax rate: "))
+    taxrate = float(input("Enter tax rate (3% = .03)" ))
     return taxrate
 
 def CalcTaxAndNetPay(hours, hourlyrate, taxrate):
@@ -54,7 +58,7 @@ def printinfo(EmpDetailList):
         print(fromdate, todate, empname, f"{hours:,.2f}", f"{hourlyrate:,.2f}", f"{grosspay:,.2f}", f"{taxrate:,.1%}", f"{incometax:,.2f}", f"{netpay:,.2f}")
 
         # Update total values
-        TotEmployees = 5
+        TotEmployees += 1
         TotHours += hours
         TotGrossPay += grosspay
         TotTax += incometax
@@ -93,7 +97,7 @@ def GetFromDate():
     while not valid:
         # Prompt user to enter a start date or 'ALL'
         fromdate = input("Enter From Date (mm/dd/yyyy): ")
-        if (len(fromdate.split('/')) != 3 and fromdate.upper() !='ALL'):
+        if (len(fromdate.split('/')) != 3 and fromdate.upper() !='END'):
             print("Invalid Date Format: ")
         else:
             valid = True
