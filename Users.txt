@@ -1,1 +1,2 @@
 Tazz|1234|Admin
+LightSpeed|1234|User
